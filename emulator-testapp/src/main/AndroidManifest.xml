@@ -7,7 +7,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
         <activity
-            android:name="com.sanfengandroid.fakelinker.emulator_test.MainActivity"
+            android:name="com.sanfengandroid.fakelinker.emulator.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             >

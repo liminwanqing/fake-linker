@@ -37,7 +37,7 @@ int test_after_hook_replace(int a) {
   return orig_test_after_hook(a - 1);
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_sanfengandroid_testapp_MainActivity_beforeHookSymbol(JNIEnv *env,
+extern "C" JNIEXPORT void JNICALL Java_com_sanfengandroid_fakelinker_emulator_MainActivity_beforeHookSymbol(JNIEnv *env,
                                                                                                 jobject thiz,
                                                                                                 jlong addr) {
   if (addr > 0) {
@@ -46,7 +46,7 @@ extern "C" JNIEXPORT void JNICALL Java_com_sanfengandroid_testapp_MainActivity_b
   }
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_sanfengandroid_testapp_MainActivity_afterHookSymbol(JNIEnv *env,
+extern "C" JNIEXPORT void JNICALL Java_com_sanfengandroid_fakelinker_emulator_MainActivity_afterHookSymbol(JNIEnv *env,
                                                                                                jobject thiz,
                                                                                                jlong addr) {
   if (addr > 0) {
@@ -58,7 +58,7 @@ extern "C" JNIEXPORT void JNICALL Java_com_sanfengandroid_testapp_MainActivity_a
 #endif
 
 extern "C" JNIEXPORT void JNICALL
-Java_com_sanfengandroid_testapp_MainActivity_testArmSymbolForFakeinkerHook(JNIEnv *env, jobject thiz) {
+Java_com_sanfengandroid_fakelinker_emulator_MainActivity_testArmSymbolForFakeinkerHook(JNIEnv *env, jobject thiz) {
   void *libc = dlopen("libm.so", RTLD_NOW);
   LOGW("found libc module: %p, hook function address: %p", libc, test_x86_arm_hook_before);
   if (libc) {
@@ -72,13 +72,13 @@ Java_com_sanfengandroid_testapp_MainActivity_testArmSymbolForFakeinkerHook(JNIEn
   LOGW("test emulator arm symbol for fakelinker hook result: %s", hooked ? "true" : "false");
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_sanfengandroid_testapp_MainActivity_testAfterHook(JNIEnv *env,
+extern "C" JNIEXPORT void JNICALL Java_com_sanfengandroid_fakelinker_emulator_MainActivity_testAfterHook(JNIEnv *env,
                                                                                              jobject thiz) {
   int a = 10;
   a = test_x86_arm_hook_after(a);
   LOGW("test after hook output: %d, hook success: %s", a, a == 8 ? "true" : "false");
 }
-extern "C" JNIEXPORT void JNICALL Java_com_sanfengandroid_testapp_MainActivity_testBeforeHook(JNIEnv *env,
+extern "C" JNIEXPORT void JNICALL Java_com_sanfengandroid_fakelinker_emulator_MainActivity_testBeforeHook(JNIEnv *env,
                                                                                               jobject thiz) {
   int a = 10;
   a = test_x86_arm_hook_before(a);

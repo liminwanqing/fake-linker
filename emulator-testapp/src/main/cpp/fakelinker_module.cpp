@@ -108,7 +108,7 @@ C_API JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *unused) {
   LOGI("load fakelinker module");
   return JNI_VERSION_1_6;
 }
-extern "C" JNIEXPORT void JNICALL Java_com_sanfengandroid_testapp_MainActivity_relocateLibrary(JNIEnv *env, jobject,
+extern "C" JNIEXPORT void JNICALL Java_com_sanfengandroid_fakelinker_emulator_MainActivity_relocateLibrary(JNIEnv *env, jobject,
                                                                                                jstring library) {
   if (!library || !loaded) {
     return;
@@ -116,7 +116,7 @@ extern "C" JNIEXPORT void JNICALL Java_com_sanfengandroid_testapp_MainActivity_r
   ScopedUtfChars name(env, library);
   LOGW("relocate library: %s, result: %d", name.c_str(), remote->call_manual_relocation_by_name(thiz, name.c_str()));
 }
-extern "C" JNIEXPORT jlong JNICALL Java_com_sanfengandroid_testapp_MainActivity_findModuleBeforeAddress(JNIEnv *env,
+extern "C" JNIEXPORT jlong JNICALL Java_com_sanfengandroid_fakelinker_emulator_MainActivity_findModuleBeforeAddress(JNIEnv *env,
                                                                                                         jobject thiz) {
   if (!loaded) {
     return 0;
@@ -127,7 +127,7 @@ extern "C" JNIEXPORT jlong JNICALL Java_com_sanfengandroid_testapp_MainActivity_
   LOGI("find result: %" PRIx64, addr);
   return addr;
 }
-extern "C" JNIEXPORT jlong JNICALL Java_com_sanfengandroid_testapp_MainActivity_findModuleAfterAddress(JNIEnv *env,
+extern "C" JNIEXPORT jlong JNICALL Java_com_sanfengandroid_fakelinker_emulator_MainActivity_findModuleAfterAddress(JNIEnv *env,
                                                                                                        jobject thiz) {
   if (!loaded) {
     return 0;

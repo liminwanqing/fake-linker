@@ -15,7 +15,7 @@
  *
  */
 
-package com.sanfengandroid.fakelinker.emulator_test;
+package com.sanfengandroid.fakelinker.emulator;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -36,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
     findViewById(R.id.btnLoadFakelinker).setOnClickListener(view -> {
       try {
         // 模拟器可能加载到默认命名空间中,因此要先手动加载fakelinker模块
-        System.loadLibrary(FakeLinker.is64Bit() ? "fakelinker-test64"
-                                                : "fakelinker-test32");
-        String name = FakeLinker.is64Bit() ? "libfakelinker-test64.so"
-                                           : "libfakelinker-test32.so";
+        System.loadLibrary(FakeLinker.is64Bit() ? "fakelinker-module64"
+                                                : "fakelinker-module32");
+        String name = FakeLinker.is64Bit() ? "libfakelinker-module64.so"
+                                           : "libfakelinker-module32.so";
         FakeLinker.initFakeLinker(null, name);
         Log.w("FakeLinker_Test", "start load test module");
       } catch (Throwable e) {

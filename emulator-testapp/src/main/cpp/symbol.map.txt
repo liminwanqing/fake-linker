@@ -3,9 +3,9 @@
         fakelinker_module_init;
         dlopen;
         dlsym;
-        Java_com_sanfengandroid_testapp_MainActivity_findModuleBeforeAddress;
-        Java_com_sanfengandroid_testapp_MainActivity_findModuleAfterAddress;
-        Java_com_sanfengandroid_testapp_MainActivity_relocateLibrary;
+        Java_com_sanfengandroid_fakelinker_emulator_MainActivity_findModuleBeforeAddress;
+        Java_com_sanfengandroid_fakelinker_emulator_MainActivity_findModuleAfterAddress;
+        Java_com_sanfengandroid_fakelinker_emulator_MainActivity_relocateLibrary;
         JNI_OnLoad;
         close;
     local:

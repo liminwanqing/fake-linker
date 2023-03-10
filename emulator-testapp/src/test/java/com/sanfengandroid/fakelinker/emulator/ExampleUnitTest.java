@@ -15,7 +15,7 @@
  *
  */
 
-package com.sanfengandroid.fakelinker.emulator_test;
+package com.sanfengandroid.fakelinker.emulator;
 
 import static org.junit.Assert.*;
 
