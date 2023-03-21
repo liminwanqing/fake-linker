@@ -10,8 +10,9 @@ else()
   set(MODULE_SUFFIX "32")
 endif()
 
-add_library(Dobby STATIC IMPORTED)
-set_target_properties(Dobby PROPERTIES IMPORTED_LOCATION
+include_directories(Dobby)
+add_library(local_dobby STATIC IMPORTED)
+set_target_properties(local_dobby PROPERTIES IMPORTED_LOCATION
   ${CMAKE_CURRENT_SOURCE_DIR}/Dobby/${CMAKE_ANDROID_ARCH_ABI}/libdobby.a)
 
 set(FAKELINKER_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../../library/src/main/cpp)
@@ -58,5 +59,5 @@ target_link_libraries(test_module
 
 target_link_libraries(test_module_hook
   ${log-lib}
-  Dobby
+  local_dobby
 )
